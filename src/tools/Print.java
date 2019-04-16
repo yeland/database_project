@@ -39,4 +39,7 @@ public class Print {
                 "\t4.3 删除指定课程\n" +
                 "\t4.3 删除指定老师\n");
     }
+    public static void inputStudentName() {
+        System.out.println("请输入学生姓名：");
+    }
 }
