@@ -19,6 +19,10 @@ public class ChooseOperation {
             case "111":
                 Select.selectAllStudent();
                 break;
+            case "112":
+                Print.inputStudentName();
+                String name = Input.getInput();
+                Select.selectStudent(name);
         }
     }
 }
