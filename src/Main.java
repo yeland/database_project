@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) throws SQLException {
         CommandLogin commandLogin = new CommandLogin();
         commandLogin.inputLogin();
-        //ChooseOperation chooseOperation = new ChooseOperation();
-//        chooseOperation.choose();
+        ChooseOperation chooseOperation = new ChooseOperation();
+        chooseOperation.choose();
 
     }
 }

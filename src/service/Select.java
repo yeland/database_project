@@ -6,7 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class Select {
-    public static void selectAllStudent() throws SQLException {
+    /*public static void selectAllStudent() throws SQLException {
         String select = "Select * FROM student";
         ResultSet resultSet = Connect.operation(select);
         while (resultSet.next()) {
@@ -20,9 +20,9 @@ public class Select {
         int age = resultSet.getInt("age");
         String sex = resultSet.getString("sex");
         System.out.println("学号： " + id + ", 姓名： " + studentName + ", 年龄： " + age + ", 性别： " + sex);
-    }
+    }*/
 
-    public static void selectStudent(String name) throws SQLException {
+    /*public static void selectStudent(String name) throws SQLException {
         String select1 = "Select * FROM student WHERE name = \"" + name + "\"";
         ResultSet resultSet1 = Connect.operation(select1);
         if (resultSet1.next()) {
@@ -35,7 +35,7 @@ public class Select {
             double score = resultSet2.getDouble("score");
             System.out.println(subjectName + ":" + score);
         }
-    }
+    }*/
 
     public static void selectTeacherSuent(String name) {
 
