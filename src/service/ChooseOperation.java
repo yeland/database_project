@@ -23,6 +23,8 @@ public class ChooseOperation {
                 Print.inputStudentName();
                 String name = Input.getInput();
                 Select.selectStudent(name);
+            case "113":
+
         }
     }
 }

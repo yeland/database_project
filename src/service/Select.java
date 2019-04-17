@@ -14,6 +14,14 @@ public class Select {
         }
     }
 
+    private static void getStudent(ResultSet resultSet) throws SQLException {
+        int id = resultSet.getInt("id");
+        String studentName = resultSet.getString("name");
+        int age = resultSet.getInt("age");
+        String sex = resultSet.getString("sex");
+        System.out.println("学号： " + id + ", 姓名： " + studentName + ", 年龄： " + age + ", 性别： " + sex);
+    }
+
     public static void selectStudent(String name) throws SQLException {
         String select1 = "Select * FROM student WHERE name = \"" + name + "\"";
         ResultSet resultSet1 = Connect.operation(select1);
@@ -29,12 +37,8 @@ public class Select {
         }
     }
 
-    private static void getStudent(ResultSet resultSet) throws SQLException {
-        int id = resultSet.getInt("id");
-        String studentName = resultSet.getString("name");
-        int age = resultSet.getInt("age");
-        String sex = resultSet.getString("sex");
-        System.out.println("学号： " + id + ", 姓名： " + studentName + ", 年龄： " + age + ", 性别： " + sex);
+    public static void selectTeacherSuent(String name) {
+
     }
 
 }

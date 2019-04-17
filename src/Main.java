@@ -1,13 +1,15 @@
-import service.CheckLoad;
+import service.UserService;
 import service.ChooseOperation;
+import tools.CommandLogin;
 
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws SQLException {
-        CheckLoad.load();
-        ChooseOperation chooseOperation = new ChooseOperation();
-        chooseOperation.choose();
+        CommandLogin commandLogin = new CommandLogin();
+        commandLogin.inputLogin();
+        //ChooseOperation chooseOperation = new ChooseOperation();
+//        chooseOperation.choose();
 
     }
 }
