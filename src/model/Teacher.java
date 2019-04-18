@@ -1,10 +1,16 @@
 package model;
 
+import dao.SubjectDao;
+
+import java.sql.SQLException;
+import java.util.List;
+
 public class Teacher {
     private int id;
     private String name;
     private int age;
     private String sex;
+    private List<Subject> subjects;
 
     public Teacher(int id, String name, int age, String sex) {
         this.id = id;
@@ -45,6 +51,15 @@ public class Teacher {
         this.sex = sex;
     }
 
+    public List<Subject> getSubjects() {
+        return this.subjects;
+    }
+
+    public void setSubjects() throws SQLException {
+        SubjectDao subjectDao = new SubjectDao();
+        this.subjects = subjectDao.getSubjectsByTeacher(this.name);
+    }
+
     @Override
     public String toString() {
         return "工号：" + id +
@@ -52,4 +67,5 @@ public class Teacher {
                 ", 年龄：" + age +
                 ", 性别：" + sex;
     }
+
 }

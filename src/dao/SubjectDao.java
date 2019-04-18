@@ -8,8 +8,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class SubjectDao {
-    public List<Subject> getSubjects() throws SQLException {
+    public List<Subject> getAllSubjects() throws SQLException {
         String select = "Select * FROM subject";
+        return getSubjects(select);
+    }
+
+    public List<Subject> getSubjects(String select) throws SQLException {
         ResultSet resultSet = Connect.operation(select);
         List<Subject> subjects = new ArrayList<>();
         while (resultSet.next()) {
@@ -33,5 +37,10 @@ public class SubjectDao {
             return getSubject(resultSet);
         }
         return null;
+    }
+
+    public List<Subject> getSubjectsByTeacher(String teacherName) throws SQLException {
+        String select = "Select * FROM subject WHERE teacher = \"" + teacherName + "\"";
+        return getSubjects(select);
     }
 }

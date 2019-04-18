@@ -30,7 +30,7 @@ public class ChooseOperation {
                 System.out.println(student);
                 break;
             case "1.2.1":
-                List<Subject> subjects = subjectDao.getSubjects();
+                List<Subject> subjects = subjectDao.getAllSubjects();
                 subjects.forEach(System.out::println);
                 break;
             case "1.2.2":
@@ -39,14 +39,20 @@ public class ChooseOperation {
                 Subject subject = subjectDao.getSubjectByName(subjectName);
                 System.out.println(subject);
                 break;
+            case "1.2.3":
+                System.out.println("请输入老师姓名：");
+                String teacherName = Input.getInput();
+                List<Subject> subjects1 = subjectDao.getSubjectsByTeacher(teacherName);
+                subjects1.forEach(System.out::println);
+                break;
             case "1.3.1":
                 List<Teacher> teachers = teacherDao.getAllTeachers();
                 teachers.forEach(System.out::println);
                 break;
             case "1.3.2":
                 System.out.println("请输入老师姓名：");
-                String teacherName = Input.getInput();
-                Teacher teacher = teacherDao.getTeacherByName(teacherName);
+                String teacherName1 = Input.getInput();
+                Teacher teacher = teacherDao.getTeacherByName(teacherName1);
                 System.out.println(teacher);
                 break;
         }
