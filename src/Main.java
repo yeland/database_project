@@ -1,5 +1,4 @@
-import service.UserService;
-import service.ChooseOperation;
+import tools.ChooseOperation;
 import tools.CommandLogin;
 
 import java.sql.SQLException;

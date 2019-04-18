@@ -26,4 +26,13 @@ public class StudentDao {
         return new Student(id,studentName,age,sex);
     }
 
+    public Student getStudentByName(String name) throws SQLException {
+        String select1 = "Select * FROM student WHERE name = \"" + name + "\"";
+        ResultSet resultSet = Connect.operation(select1);
+        if (resultSet.next()) {
+            return getStudent(resultSet);
+        }
+        return null;
+    }
+
 }

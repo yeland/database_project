@@ -1,4 +1,4 @@
-package service;
+package tools;
 
 import dao.StudentDao;
 import model.Student;
@@ -11,14 +11,17 @@ import java.util.List;
 public class ChooseOperation {
     public void choose() throws SQLException {
         String chooseString = Input.getInput();
+        StudentDao studentDao = new StudentDao();
         switch (chooseString) {
             case "1.1.1":
-                StudentDao studentDao = new StudentDao();
                 List<Student> students = studentDao.getAllStudents();
                 students.forEach(System.out::println);
                 break;
             case "1.1.2":
-
+                Print.inputStudentName();
+                String name = Input.getInput();
+                Student student = studentDao.getStudentByName(name);
+                System.out.println(student);
             case "1.1.3":
 
         }
