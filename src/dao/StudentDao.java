@@ -35,4 +35,15 @@ public class StudentDao {
         return null;
     }
 
+    public Student getStudentById(int id) throws SQLException {
+        String select = "Select * FROM student WHERE id = \"" + id + "\"";
+        ResultSet resultSet = Connect.operation(select);
+        if (resultSet.next()) {
+            return getStudent(resultSet);
+        }
+        return null;
+    }
+
+
+
 }

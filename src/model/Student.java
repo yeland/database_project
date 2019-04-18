@@ -7,7 +7,6 @@ public class Student {
     private String name;
     private int age;
     private String sex;
-    private List<Score> scores;
 
     public Student(int id, String name, int age, String sex) {
         this.id = id;
@@ -46,14 +45,6 @@ public class Student {
 
     public void setSex(String sex) {
         this.sex = sex;
-    }
-
-    public List<Score> getScores() {
-        return this.scores;
-    }
-
-    public void setScores(List<Score> score) {
-        this.scores = score;
     }
 
     @Override
