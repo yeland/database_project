@@ -21,19 +21,21 @@ public class ChooseOperation {
                 students.forEach(System.out::println);
                 break;
             case "1.1.2":
-                Print.inputStudentName();
+                System.out.println("请输入学生姓名：");
                 String name = Input.getInput();
                 Student student = studentDao.getStudentByName(name);
                 System.out.println(student);
+                break;
             case "1.2.1":
                 List<Subject> subjects = subjectDao.getSubjects();
                 subjects.forEach(System.out::println);
+                break;
             case "1.2.2":
                 System.out.println("请输入课程名称：");
                 String subjectName = Input.getInput();
                 Subject subject = subjectDao.getSubjectByName(subjectName);
                 System.out.println(subject);
-
+                break;
         }
     }
 }

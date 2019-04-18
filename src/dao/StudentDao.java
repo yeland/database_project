@@ -27,8 +27,8 @@ public class StudentDao {
     }
 
     public Student getStudentByName(String name) throws SQLException {
-        String select1 = "Select * FROM student WHERE name = \"" + name + "\"";
-        ResultSet resultSet = Connect.operation(select1);
+        String select = "Select * FROM student WHERE name = \"" + name + "\"";
+        ResultSet resultSet = Connect.operation(select);
         if (resultSet.next()) {
             return getStudent(resultSet);
         }
