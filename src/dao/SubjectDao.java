@@ -39,6 +39,15 @@ public class SubjectDao {
         return null;
     }
 
+    public Subject getSubjectById(int id) throws SQLException {
+        String select = "Select * FROM subject WHERE id = \"" + id + "\"";
+        ResultSet resultSet = Connect.operation(select);
+        if (resultSet.next()) {
+            return getSubject(resultSet);
+        }
+        return null;
+    }
+
     public List<Subject> getSubjectsByTeacher(String teacherName) throws SQLException {
         String select = "Select * FROM subject WHERE teacher = \"" + teacherName + "\"";
         return getSubjects(select);
