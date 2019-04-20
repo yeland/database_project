@@ -38,5 +38,6 @@ public class Score {
     @Override
     public String toString() {
         return subject + "：" + number;
+//        return student + ", " + subject + "：" + number;
     }
 }
