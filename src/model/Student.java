@@ -54,4 +54,8 @@ public class Student {
                 ", 年龄：" + age +
                 ", 性别：" + sex;
     }
+
+    public String toSql() {
+        return "(" + this.id + ",\"" + this.name + "\"," + this.age + ",\"" + this.sex + "\")";
+    }
 }

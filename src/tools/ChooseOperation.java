@@ -12,6 +12,9 @@ public class ChooseOperation {
                 select.selectSubject(chooseString);
                 select.selectTeacher(chooseString);
                 break;
+            case "2":
+                Update update = new Update();
+                update.insert(chooseString);
             default:
                 break;
         }

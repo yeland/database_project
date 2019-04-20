@@ -15,6 +15,14 @@ public class Connect {
         return  resultSet;
     }
 
+    public static int updateOperation(String sql) {
+        Connect connect = new Connect();
+        Connection connection = connect.getConnect();
+        Statement statement = connect.getStatement(connection);
+        int result = connect.executeUpdateSQL(statement,sql);
+        return result;
+    }
+
     private Connection getConnect() {
         try {
             //加载驱动
@@ -54,6 +62,17 @@ public class Connect {
         }
 
         return rs;
+    }
+
+    private int executeUpdateSQL(Statement statement, String sql) {
+        int number = 0;
+        try {
+            number = statement.executeUpdate(sql);
+        } catch (SQLException e) {
+            System.out.println("查询失败！");
+        }
+
+        return number;
     }
 
     private static void closeConnect(ResultSet rs, Statement st, Connection conn) {

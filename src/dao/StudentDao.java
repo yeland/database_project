@@ -44,6 +44,10 @@ public class StudentDao {
         return null;
     }
 
-
+    public int insertStudent(Student student) {
+        String sql = "INSERT student VALUES" + student.toSql();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 
 }
