@@ -49,9 +49,7 @@ public class ChooseOperation {
             case "1.1.4":
                 System.out.println("请输入课程名称：");
                 String subjectName = Input.getInput();
-//                List<Score> scoresSubject =
                 getScoresBySubject(subjectName);
-//                scoresSubject.forEach(score -> System.out.println(score.getStudent() + ", " + score));
                 break;
             case "1.2.1":
                 List<Subject> subjects1 = subjectDao.getAllSubjects();
