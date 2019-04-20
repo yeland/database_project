@@ -14,10 +14,8 @@ public class CommandLogin {
             userInfo = Input.getInput();
             chooseRole = checkLogin(userInfo);
         }
-        switch (chooseRole) {
-            case 1:
-                Print.managerScreen();
-                break;
+        if (chooseRole == 1) {
+            Print.managerScreen();
         }
     }
 

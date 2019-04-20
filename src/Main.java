@@ -1,5 +1,6 @@
 import tools.ChooseOperation;
 import tools.CommandLogin;
+import tools.Input;
 
 import java.sql.SQLException;
 
@@ -8,7 +9,12 @@ public class Main {
         CommandLogin commandLogin = new CommandLogin();
         commandLogin.inputLogin();
         ChooseOperation chooseOperation = new ChooseOperation();
-        chooseOperation.choose();
-
+        while (true) {
+            String chooseString = Input.getInput();
+            if(chooseString.equals("0")) {
+                break;
+            }
+            chooseOperation.choose(chooseString);
+        }
     }
 }
