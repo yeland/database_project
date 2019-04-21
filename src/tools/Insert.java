@@ -43,9 +43,7 @@ public class Insert {
 
     private void addSubject() {
         System.out.println("请输入课程信息(例如：1001, 语文, 王老师, 本次考试比较简单)：");
-        String subjectInfo = Input.getInput();
-        String[] infos = subjectInfo.split(", ");
-        Subject subject = new Subject(Integer.parseInt(infos[0]),infos[1],infos[2],infos[3]);
+        Subject subject = Input.getSubject();
         SubjectDao subjectDao = new SubjectDao();
         int result = subjectDao.insertSubject(subject);
         if(result != 0) {

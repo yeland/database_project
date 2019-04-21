@@ -59,4 +59,13 @@ public class SubjectDao {
         int result = Connect.updateOperation(sql);
         return result;
     }
+
+    public int updateSubject(Subject subject) {
+        String sql = "UPDATE subject SET subject = \"" + subject.getName() + "\"" +
+                ", teacher = \"" + subject.getTeacher() + "\"" +
+                ", description = \"" + subject.getDescription() + "\"" +
+                "WHERE id =" + subject.getId();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }
