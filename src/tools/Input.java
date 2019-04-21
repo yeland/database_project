@@ -2,6 +2,7 @@ package tools;
 
 import model.Student;
 import model.Subject;
+import model.Teacher;
 
 import java.util.Scanner;
 
@@ -23,5 +24,12 @@ public class Input {
         String[] infos = subjectInfo.split(", ");
         Subject subject = new Subject(Integer.parseInt(infos[0]),infos[1],infos[2],infos[3]);
         return subject;
+    }
+
+    public static Teacher getTeacher() {
+        String teacherInfo = Input.getInput();
+        String[] infos = teacherInfo.split(", ");
+        Teacher teacher = new Teacher(Integer.parseInt(infos[0]),infos[1],Integer.parseInt(infos[2]),infos[3]);
+        return teacher;
     }
 }

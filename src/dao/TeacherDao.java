@@ -41,4 +41,13 @@ public class TeacherDao {
         int result = Connect.updateOperation(sql);
         return result;
     }
+
+    public int updateTeacher(Teacher teacher) {
+        String sql = "UPDATE teacher SET name = \"" + teacher.getName() + "\"" +
+                ", age =" + teacher.getAge() +
+                ", sex = \"" + teacher.getSex() + "\"" +
+                "WHERE id =" + teacher.getId();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }

@@ -2,8 +2,10 @@ package tools;
 
 import dao.StudentDao;
 import dao.SubjectDao;
+import dao.TeacherDao;
 import model.Student;
 import model.Subject;
+import model.Teacher;
 
 import java.sql.SQLException;
 
@@ -17,6 +19,7 @@ public class Update {
                 modifySubject();
                 break;
             case "3.3":
+                modifyTeacher();
                 break;
             case "3.4":
                 break;
@@ -42,6 +45,16 @@ public class Update {
         int result = subjectDao.updateSubject(subject);
         if (result != 0) {
             System.out.println("修改科目[" + subject.getId() + "]成功");
+        }
+    }
+
+    private void modifyTeacher() {
+        System.out.println("请输入老师工号及其他信息(例如：301, 王老师, 45, 男)：");
+        Teacher teacher = Input.getTeacher();
+        TeacherDao teacherDao = new TeacherDao();
+        int result = teacherDao.updateTeacher(teacher);
+        if(result != 0) {
+            System.out.println("修改老师[" + teacher.getId() + "]成功");
         }
     }
 
