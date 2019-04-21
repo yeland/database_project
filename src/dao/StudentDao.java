@@ -1,6 +1,7 @@
 package dao;
 
 import model.Student;
+import model.Subject;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -23,7 +24,7 @@ public class StudentDao {
         String studentName = resultSet.getString("name");
         int age = resultSet.getInt("age");
         String sex = resultSet.getString("sex");
-        return new Student(id,studentName,age,sex);
+        return new Student(id, studentName, age, sex);
     }
 
     public Student getStudentByName(String name) throws SQLException {
@@ -50,4 +51,12 @@ public class StudentDao {
         return result;
     }
 
+    public int updateStudent(Student student) {
+        String sql = "UPDATE student SET name = \"" + student.getName() + "\"" +
+                ", age =" + student.getAge() +
+                ", sex = \"" + student.getSex() + "\"" +
+                "WHERE id =" + student.getId();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }

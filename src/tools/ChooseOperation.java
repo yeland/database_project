@@ -15,6 +15,9 @@ public class ChooseOperation {
             case "2":
                 Insert insert = new Insert();
                 insert.insertChoose(chooseString);
+            case "3":
+                Update update = new Update();
+                update.updateChoose(chooseString);
             default:
                 break;
         }

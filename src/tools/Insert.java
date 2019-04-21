@@ -33,9 +33,7 @@ public class Insert {
 
     private void addStudent() {
         System.out.println("请输入学生信息(例如：1001，小明, 18, 男)：");
-        String studentInfo = Input.getInput();
-        String[] infos = studentInfo.split(", ");
-        Student student = new Student(Integer.parseInt(infos[0]),infos[1],Integer.parseInt(infos[2]),infos[3]);
+        Student student = Input.getStudent();
         StudentDao studentDao = new StudentDao();
         int result = studentDao.insertStudent(student);
         if(result != 0) {
