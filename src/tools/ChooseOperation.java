@@ -13,8 +13,8 @@ public class ChooseOperation {
                 select.selectTeacher(chooseString);
                 break;
             case "2":
-                Update update = new Update();
-                update.insert(chooseString);
+                Insert insert = new Insert();
+                insert.insertChoose(chooseString);
             default:
                 break;
         }

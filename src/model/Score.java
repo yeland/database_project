@@ -39,4 +39,8 @@ public class Score {
     public String toString() {
         return subject.getName() + "：" + number;
     }
+
+    public String toSql() {
+        return "(" + this.student.getId() + "," + this.subject.getId() + "," + this.number + ")";
+    }
 }

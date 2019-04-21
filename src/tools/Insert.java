@@ -1,14 +1,18 @@
 package tools;
 
+import dao.ScoreDao;
 import dao.StudentDao;
 import dao.SubjectDao;
 import dao.TeacherDao;
+import model.Score;
 import model.Student;
 import model.Subject;
 import model.Teacher;
 
-public class Update {
-    public void insert(String chooseString) {
+import java.sql.SQLException;
+
+public class Insert {
+    public void insertChoose(String chooseString) throws SQLException {
         switch (chooseString) {
             case "2.1":
                 addStudent();
@@ -20,7 +24,10 @@ public class Update {
                 addTeacher();
                 break;
             case "2.4":
-
+                addStudentScore();
+                break;
+            default:
+                break;
         }
     }
 
@@ -60,10 +67,19 @@ public class Update {
         }
     }
 
-    private void addStudentScore() {
+    private void addStudentScore() throws SQLException {
         System.out.println("请输入学生名字及其成绩(例如：张三, 英语, 86)：");
         String scoreInfo = Input.getInput();
         String[] infos = scoreInfo.split(", ");
-
+        StudentDao studentDao = new StudentDao();
+        Student student = studentDao.getStudentByName(infos[0]);
+        SubjectDao subjectDao = new SubjectDao();
+        Subject subject = subjectDao.getSubjectByName(infos[1]);
+        Score score = new Score(subject,student,Double.parseDouble(infos[2]));
+        ScoreDao scoreDao = new ScoreDao();
+        int result = scoreDao.insertScore(score);
+        if(result != 0) {
+            System.out.println("添加成绩成功");
+        }
     }
 }

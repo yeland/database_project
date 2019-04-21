@@ -37,4 +37,10 @@ public class ScoreDao {
         }
         return scores;
     }
+
+    public int insertScore(Score score) {
+        String sql = "INSERT score (student_id, subject_id, score) VALUES" + score.toSql();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }
