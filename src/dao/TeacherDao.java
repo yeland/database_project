@@ -1,5 +1,6 @@
 package dao;
 
+import model.Student;
 import model.Teacher;
 
 import java.sql.ResultSet;
@@ -33,5 +34,11 @@ public class TeacherDao {
             return getTeacher(resultSet);
         }
         return null;
+    }
+
+    public int insertTeacher(Teacher teacher) {
+        String sql = "INSERT teacher VALUES" + teacher.toSql();
+        int result = Connect.updateOperation(sql);
+        return result;
     }
 }

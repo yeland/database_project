@@ -52,4 +52,8 @@ public class Subject {
                 ", 授课教师：" + teacher +
                 ", 描述：" + description;
     }
+
+    public String toSql() {
+        return "(" + this.id + ",\"" + this.name + "\",\"" + this.teacher + "\",\"" + this.description + "\")";
+    }
 }

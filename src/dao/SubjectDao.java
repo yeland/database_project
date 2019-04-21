@@ -1,5 +1,6 @@
 package dao;
 
+import model.Student;
 import model.Subject;
 
 import java.sql.ResultSet;
@@ -51,5 +52,11 @@ public class SubjectDao {
     public List<Subject> getSubjectsByTeacher(String teacherName) throws SQLException {
         String select = "Select * FROM subject WHERE teacher = \"" + teacherName + "\"";
         return getSubjects(select);
+    }
+
+    public int insertSubject(Subject subject) {
+        String sql = "INSERT subject VALUES" + subject.toSql();
+        int result = Connect.updateOperation(sql);
+        return result;
     }
 }

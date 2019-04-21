@@ -68,4 +68,7 @@ public class Teacher {
                 ", 性别：" + sex;
     }
 
+    public String toSql() {
+        return "(" + this.id + ",\"" + this.name + "\"," + this.age + ",\"" + this.sex + "\")";
+    }
 }
