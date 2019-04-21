@@ -53,9 +53,7 @@ public class Insert {
 
     private void addTeacher() {
         System.out.println("请输入老师信息(例如：301, 王老师, 45, 男)：");
-        String teacherInfo = Input.getInput();
-        String[] infos = teacherInfo.split(", ");
-        Teacher teacher = new Teacher(Integer.parseInt(infos[0]),infos[1],Integer.parseInt(infos[2]),infos[3]);
+        Teacher teacher = Input.getTeacher();
         TeacherDao teacherDao = new TeacherDao();
         int result = teacherDao.insertTeacher(teacher);
         if(result != 0) {
@@ -65,13 +63,7 @@ public class Insert {
 
     private void addStudentScore() throws SQLException {
         System.out.println("请输入学生名字及其成绩(例如：张三, 英语, 86)：");
-        String scoreInfo = Input.getInput();
-        String[] infos = scoreInfo.split(", ");
-        StudentDao studentDao = new StudentDao();
-        Student student = studentDao.getStudentByName(infos[0]);
-        SubjectDao subjectDao = new SubjectDao();
-        Subject subject = subjectDao.getSubjectByName(infos[1]);
-        Score score = new Score(subject,student,Double.parseDouble(infos[2]));
+        Score score = Input.getScore();
         ScoreDao scoreDao = new ScoreDao();
         int result = scoreDao.insertScore(score);
         if(result != 0) {

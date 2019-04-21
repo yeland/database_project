@@ -1,8 +1,10 @@
 package tools;
 
+import dao.ScoreDao;
 import dao.StudentDao;
 import dao.SubjectDao;
 import dao.TeacherDao;
+import model.Score;
 import model.Student;
 import model.Subject;
 import model.Teacher;
@@ -22,6 +24,7 @@ public class Update {
                 modifyTeacher();
                 break;
             case "3.4":
+                modifyScore();
                 break;
             default:
                 break;
@@ -58,5 +61,14 @@ public class Update {
         }
     }
 
+    private void modifyScore() throws SQLException {
+        System.out.println("请输入学生名字及其成绩(例如：张三, 英语, 86)：");
+        Score score = Input.getScore();
+        ScoreDao scoreDao = new ScoreDao();
+        int result = scoreDao.updateScore(score);
+        if(result != 0) {
+            System.out.println("修改成绩成功");
+        }
+    }
 
 }

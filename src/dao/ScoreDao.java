@@ -11,7 +11,7 @@ import java.util.List;
 
 public class ScoreDao {
     public List<Score> getScoresBySubject(Subject subject) throws SQLException {
-        String select = "Select * FROM score WHERE subject_id = \"" + subject.getId() + "\"";
+        String select = "Select * FROM score WHERE subject_id = " + subject.getId();
         ResultSet resultSet = Connect.operation(select);
         List<Score> scores = new ArrayList<>();
         while (resultSet.next()) {
@@ -25,7 +25,7 @@ public class ScoreDao {
     }
 
     public List<Score> getScoresByStudent(Student student) throws SQLException {
-        String select = "Select * FROM score WHERE student_id = \"" + student.getId() + "\"";
+        String select = "Select * FROM score WHERE student_id = " + student.getId();
         ResultSet resultSet = Connect.operation(select);
         List<Score> scores = new ArrayList<>();
         while (resultSet.next()) {
@@ -40,6 +40,14 @@ public class ScoreDao {
 
     public int insertScore(Score score) {
         String sql = "INSERT score (student_id, subject_id, score) VALUES" + score.toSql();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
+
+    public int updateScore(Score score) {
+        String sql = "UPDATE score SET score = " + score.getNumber() +
+                " WHERE student_id = " + score.getStudent().getId() +
+                " AND subject_id = " + score.getSubject().getId();
         int result = Connect.updateOperation(sql);
         return result;
     }
