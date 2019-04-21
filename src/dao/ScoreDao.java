@@ -19,7 +19,7 @@ public class ScoreDao {
             double score = resultSet.getDouble("score");
             StudentDao studentDao = new StudentDao();
             Student student = studentDao.getStudentById(student_id);
-            scores.add(new Score(subject.getName(), student, score));
+            scores.add(new Score(subject, student, score));
         }
         return scores;
     }
@@ -33,7 +33,7 @@ public class ScoreDao {
             double score = resultSet.getDouble("score");
             SubjectDao subjectDao = new SubjectDao();
             Subject subject = subjectDao.getSubjectById(subject_id);
-            scores.add(new Score(subject.getName(), student, score));
+            scores.add(new Score(subject, student, score));
         }
         return scores;
     }

@@ -100,7 +100,7 @@ public class Select {
         ScoreDao scoreDao = new ScoreDao();
         Subject subject = subjectDao.getSubjectByName(subjectName);
         List<Score> scores = scoreDao.getScoresBySubject(subject);
-        List<Score> scoresSubject = scores.stream().filter(score -> score.getSubject().equals(subjectName))
+        List<Score> scoresSubject = scores.stream().filter(score -> score.getSubject().getName().equals(subjectName))
                 .collect(Collectors.toList());
         scoresSubject.forEach(score -> System.out.println(score.getStudent() + ", " + score));
     }

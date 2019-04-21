@@ -1,21 +1,21 @@
 package model;
 
 public class Score {
-    private String subject;
+    private Subject subject;
     private Student student;
     private double number;
 
-    public Score(String subject, Student student, double number) {
+    public Score(Subject subject, Student student, double number) {
         this.subject = subject;
         this.student = student;
         this.number = number;
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
         return this.subject;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
@@ -37,7 +37,6 @@ public class Score {
 
     @Override
     public String toString() {
-        return subject + "：" + number;
-//        return student + ", " + subject + "：" + number;
+        return subject.getName() + "：" + number;
     }
 }

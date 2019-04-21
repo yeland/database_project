@@ -60,4 +60,10 @@ public class Update {
         }
     }
 
+    private void addStudentScore() {
+        System.out.println("请输入学生名字及其成绩(例如：张三, 英语, 86)：");
+        String scoreInfo = Input.getInput();
+        String[] infos = scoreInfo.split(", ");
+
+    }
 }
