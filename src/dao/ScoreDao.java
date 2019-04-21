@@ -51,4 +51,10 @@ public class ScoreDao {
         int result = Connect.updateOperation(sql);
         return result;
     }
+
+    public int deleteScoreByStudent(Student student) {
+        String sql = "DELETE FROM score WHERE student_id = " + student.getId();
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }

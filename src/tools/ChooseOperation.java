@@ -18,11 +18,11 @@ public class ChooseOperation {
             case "3":
                 Update update = new Update();
                 update.updateChoose(chooseString);
+            case "4":
+                Delete delete = new Delete();
+                delete.deleteChoose(chooseString);
             default:
                 break;
         }
-
     }
-
-
 }

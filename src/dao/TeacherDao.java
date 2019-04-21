@@ -50,4 +50,10 @@ public class TeacherDao {
         int result = Connect.updateOperation(sql);
         return result;
     }
+
+    public int deleteTeacher(String name) {
+        String sql = "DELETE FROM teacher WHERE name = \"" + name + "\"";
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }

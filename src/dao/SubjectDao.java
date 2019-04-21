@@ -68,4 +68,10 @@ public class SubjectDao {
         int result = Connect.updateOperation(sql);
         return result;
     }
+
+    public int deleteSubject(String name) {
+        String sql = "DELETE FROM subject WHERE subject = \"" + name + "\"";
+        int result = Connect.updateOperation(sql);
+        return result;
+    }
 }
